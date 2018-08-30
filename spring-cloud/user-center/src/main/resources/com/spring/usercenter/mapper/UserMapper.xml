@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.usercenter.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.spring.usercenter.domain.User">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <id column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <id column="password" jdbcType="VARCHAR" property="password"/>
+        <id column="validate" jdbcType="VARCHAR" property="validate"/>
+        <id column="email" jdbcType="VARCHAR" property="email"/>
+        <id column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,user_name,password,validate,email,phone_number
+    </sql>
+
+    <select id="queryUserInfoList" resultType="com.spring.usercenter.domain.User">
+      select
+      <include refid="Base_Column_List"/>
+      from tbl_user_info
+    </select>
+</mapper>
