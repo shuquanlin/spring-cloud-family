@@ -16,7 +16,6 @@ public class OrderController {
     @Autowired
     private UserCenterFeignService userCenterFeignService;
 
-
     @RequestMapping("/test")
     private String test(){
 
