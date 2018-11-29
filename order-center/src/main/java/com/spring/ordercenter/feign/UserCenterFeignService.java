@@ -2,6 +2,7 @@ package com.spring.ordercenter.feign;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -11,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name = "user-center",fallback = UserCenterFeignService.HystrixClientFallback.class)
 public interface UserCenterFeignService {
 
-    @RequestMapping("/user/test")
+    @GetMapping("/user/test")
     String test1();
 
-    /**
-     * 熔断
-     */
+
     @Component
     class HystrixClientFallback implements UserCenterFeignService{
         @Override

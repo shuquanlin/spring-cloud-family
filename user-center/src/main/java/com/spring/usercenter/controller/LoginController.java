@@ -3,7 +3,9 @@ package com.spring.usercenter.controller;
 import com.spring.usercenter.domain.User;
 import com.spring.usercenter.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,19 +18,18 @@ import java.util.List;
 @RequestMapping("/user")
 public class LoginController {
 
-    @Autowired
-    private UserMapper userMapper;
+
 
 
     @RequestMapping("/login")
-    public List<User> login(){
+    public String login(){
 
-        List<User> users = userMapper.queryUserInfoList();
 
-        return users;
+
+        return "this is user center";
     }
 
-    @RequestMapping("/test")
+    @GetMapping("/test")
     public String test1(){
 
 
